@@ -50,8 +50,14 @@ void MyFrame::InitMenus()
     fileMenu->Append(Minimal_Quit, "Exit\tAlt-X", "Quit this program");
     // Create Image Renderer Menu
     wxMenu* imagerenderingMenu = new wxMenu;
-    imagerenderingMenu->Append(Minimal_Interpolation, "Interpolation", " ");
-    imagerenderingMenu->Append(Minimal_Scaling, "Scaling", " ");
+    wxMenu* interpolationMenu = new wxMenu;
+    interpolationMenu->Append(Minimal_NearestNeighbour, "Nearest Neighbour", "Set image interpolation to use nearest neighbour");
+    interpolationMenu->Append(Minimal_Bilinear, "Bilinear", "Set image interpolation to use bilinear");
+    imagerenderingMenu->AppendSubMenu(interpolationMenu, "Interpolation", " ");
+    wxMenu* scalingMenu = new wxMenu;
+    scalingMenu->Append(Minimal_Stretch, "Stretch", "Fit image to client size");
+    scalingMenu->Append(Minimal_Scaling, "Scaling", "User control in size and position");
+    imagerenderingMenu->AppendSubMenu(scalingMenu, "Scaling", " ");
     // Create Edit Menu
     wxMenu* editMenu = new wxMenu;
     editMenu->Append(Minimal_ImageNegative, "Image Negative", "Performs image negative operation");

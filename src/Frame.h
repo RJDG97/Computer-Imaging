@@ -17,7 +17,9 @@ public:
     void OnOpen(wxCommandEvent& event);
     void OnQuit(wxCommandEvent& event);
     // Image Rendering
-    void OnInterpolation(wxCommandEvent& event);
+    void OnNearestNeighbour(wxCommandEvent& event);
+    void OnBilinear(wxCommandEvent& event);
+    void OnStretch(wxCommandEvent& event);
     void OnScaling(wxCommandEvent& event);
     // Edit
     void OnImageNegative(wxCommandEvent& event);
@@ -55,7 +57,9 @@ enum
     Minimal_Open = wxID_OPEN,
     Minimal_Quit = wxID_EXIT,
     
-    Minimal_Interpolation, // = wxID_INTERPOLATION,
+    Minimal_NearestNeighbour, // = wxID_INTERPOLATION,
+    Minimal_Bilinear, // = wxID_INTERPOLATION,
+    Minimal_Stretch, // = wxID_INTERPOLATION,
     Minimal_Scaling,// = wxID_SCALING,
 
     Minimal_ImageNegative,// = wxID_IMAGENEGATIVE,
@@ -90,7 +94,9 @@ EVT_MENU(Minimal_SaveAs, MyFrame::OnSaveAs)
 EVT_MENU(Minimal_Open, MyFrame::OnOpen)
 EVT_MENU(Minimal_Quit, MyFrame::OnQuit)
 // Image Renderer
-EVT_MENU(Minimal_Interpolation, MyFrame::OnInterpolation)
+EVT_MENU(Minimal_NearestNeighbour, MyFrame::OnNearestNeighbour)
+EVT_MENU(Minimal_Bilinear, MyFrame::OnBilinear)
+EVT_MENU(Minimal_Stretch, MyFrame::OnStretch)
 EVT_MENU(Minimal_Scaling, MyFrame::OnScaling)
 // Edit
 EVT_MENU(Minimal_ImageNegative, MyFrame::OnImageNegative)

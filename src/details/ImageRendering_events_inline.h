@@ -1,6 +1,16 @@
 #pragma once
 
-void MyFrame::OnInterpolation(wxCommandEvent& WXUNUSED(event))
+void MyFrame::OnNearestNeighbour(wxCommandEvent& WXUNUSED(event))
+{
+
+}
+
+void MyFrame::OnBilinear(wxCommandEvent& WXUNUSED(event))
+{
+
+}
+
+void MyFrame::OnStretch(wxCommandEvent& WXUNUSED(event))
 {
 
 }
