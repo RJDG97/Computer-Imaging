@@ -34,6 +34,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\details\Analysis_events_inline.h" />
+    <ClInclude Include="src\details\Edit_events_inline.h" />
+    <ClInclude Include="src\details\File_events_inline.h" />
+    <ClInclude Include="src\details\Filter_events_inline.h" />
+    <ClInclude Include="src\details\Frame_inline.h" />
+    <ClInclude Include="src\details\ImageRendering_events_inline.h" />
+    <ClInclude Include="src\Frame.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\minimal.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectName>minimal</ProjectName>
@@ -495,12 +508,6 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Bscmake>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="minimal.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Application.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
