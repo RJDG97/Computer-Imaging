@@ -40,8 +40,18 @@ private:
     // any class wishing to process wxWidgets events must use this macro
     wxDECLARE_EVENT_TABLE();
 
-    wxMenuBar* menuBar;
-    wxBoxSizer* sizer;
+    wxMenuBar* m_menuBar;
+
+    wxSplitterWindow* m_splitter;
+    wxSplitterWindow* m_topsplitter;
+    wxSplitterWindow* m_bottomsplitter;
+    wxPanel* m_left;
+    wxPanel* m_right;
+
+    wxBoxSizer* m_sizer;
+
+    MyCanvas* m_canvas; // the canvas inside the main frame
+    bool m_imageLoaded;
 };
 
 // ----------------------------------------------------------------------------

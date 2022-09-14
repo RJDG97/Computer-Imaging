@@ -28,8 +28,12 @@
 // need because it includes almost all "standard" wxWidgets headers)
 #ifndef WX_PRECOMP
 #include "wx/wx.h"
-#include "wx/splitter.h"
 #endif
+
+#include "wx/splitter.h"
+#include <wx/image.h>
+#include <wx/file.h>
+#include <wx/bitmap.h>
 
 // ----------------------------------------------------------------------------
 // resources

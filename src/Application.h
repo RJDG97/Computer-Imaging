@@ -17,6 +17,7 @@ public:
     virtual bool OnInit();
 };
 
+#include "Canvas.h"
 #include "details/Frame_inline.h"
 
 // ----------------------------------------------------------------------------

@@ -11,21 +11,28 @@ MyFrame::MyFrame(const wxString& title)
 {
     // set the frame icon
     SetIcon(wxICON(sample));
+    
+    // Splitter
+    m_splitter = new wxSplitterWindow(this, -1, wxDefaultPosition, wxSize(1280, 720));
+    m_topsplitter = new wxSplitterWindow(m_splitter, -1, wxDefaultPosition, wxSize(1280, 650));
+    m_bottomsplitter = new wxSplitterWindow(m_splitter, -1, wxDefaultPosition, wxSize(1280, 70));
 
-    // Panel
-    wxPanel* panel = new wxPanel(this, -1);
+    // create the canvas that will manage the image
+    m_canvas = new MyCanvas(m_topsplitter, -1, wxDefaultPosition, wxDefaultSize);
+    m_imageLoaded = false;
 
+    m_right = new wxPanel(m_topsplitter);
+
+    m_right->SetBackgroundColour(wxColor(200, 100, 100));
+    m_bottomsplitter->SetBackgroundColour(wxColor(100, 200, 100));
+
+    m_topsplitter->SplitVertically(m_canvas, m_right);
+    m_splitter->SplitHorizontally(m_topsplitter, m_bottomsplitter);
+    
     // Menus
 #if wxUSE_MENUS
     InitMenus();
 #endif // wxUSE_MENUS
-
-    // Buttons
-    //sizer = new wxBoxSizer(wxVERTICAL);
-    //// (size, allignment, shift)
-    //sizer->Add(new wxButton(this, -1, "Add"), 0, wxALIGN_RIGHT | wxBOTTOM, 0);
-    //sizer->Add(new wxButton(this, -1, "Del"), 0, wxALIGN_RIGHT | wxBOTTOM, 0);
-    //SetSizer(sizer);
 
 #if wxUSE_STATUSBAR
     // create a status bar just for fun (by default with 1 pane only)
@@ -40,7 +47,7 @@ MyFrame::MyFrame(const wxString& title)
 void MyFrame::InitMenus()
 {
     // Create Menu Bar
-    menuBar = new wxMenuBar();
+    m_menuBar = new wxMenuBar();
     // Create File Menu
     wxMenu* fileMenu = new wxMenu;
     // Add Menu Items
@@ -78,16 +85,18 @@ void MyFrame::InitMenus()
     helpMenu->Append(Minimal_About, "About\tF1", "Show about dialog");
 
     // Append Menu Items
-    menuBar->Append(fileMenu, "&File");
-    menuBar->Append(imagerenderingMenu, "&ImageRendering");
-    menuBar->Append(editMenu, "&Edit");
-    menuBar->Append(filterMenu, "&Filter");
-    menuBar->Append(analysisMenu, "&Analysis");
-    menuBar->Append(helpMenu, "&Help");
+    m_menuBar->Append(fileMenu, "&File");
+    m_menuBar->Append(imagerenderingMenu, "&ImageRendering");
+    m_menuBar->Append(editMenu, "&Edit");
+    m_menuBar->Append(filterMenu, "&Filter");
+    m_menuBar->Append(analysisMenu, "&Analysis");
+    m_menuBar->Append(helpMenu, "&Help");
 
     // Aattach menu bar to the frame
-    SetMenuBar(menuBar);
+    SetMenuBar(m_menuBar);
 }
+
+
 
 // ----------------------------------------------------------------------------
 // Event Handlers

@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\Canvas.h" />
     <ClInclude Include="src\details\Analysis_events_inline.h" />
     <ClInclude Include="src\details\Edit_events_inline.h" />
     <ClInclude Include="src\details\File_events_inline.h" />

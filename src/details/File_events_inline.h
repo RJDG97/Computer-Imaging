@@ -2,7 +2,12 @@
 
 void MyFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 {
+    if (!m_imageLoaded)
+        return;
 
+    wxString filename = wxSaveFileSelector(_T("Save image as"), _T("*.ppm"));
+    if (!filename.empty())
+        m_canvas->SaveImage(filename);
 }
 
 void MyFrame::OnSaveAs(wxCommandEvent& WXUNUSED(event))
@@ -12,7 +17,12 @@ void MyFrame::OnSaveAs(wxCommandEvent& WXUNUSED(event))
 
 void MyFrame::OnOpen(wxCommandEvent& WXUNUSED(event))
 {
-
+    wxString filename = wxFileSelector(_T("Select file"), _T(""), _T(""), _T(""), _T("All files (*.*)|*.*"));
+    if (!filename.empty())
+    {
+        m_canvas->LoadImage(filename);
+        m_imageLoaded = true;
+    }
 }
 
 void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))

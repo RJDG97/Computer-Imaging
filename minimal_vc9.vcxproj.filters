@@ -33,6 +33,9 @@
     <ClInclude Include="src\details\Analysis_events_inline.h">
       <Filter>src\details</Filter>
     </ClInclude>
+    <ClInclude Include="src\Canvas.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\minimal.cpp" />
