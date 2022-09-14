@@ -1,5 +1,7 @@
 #pragma once
 
+#include "PPM.h"
+
 class MyCanvas : public wxPanel
 {
 public:
@@ -10,9 +12,9 @@ public:
 	void ProcessImage();
 	void BestSize();
 
-private:
 	int m_imageWidth;
 	int m_imageHeight;
+	int m_imageMaxVal;
 	wxBitmap m_imageBitmap;	// used to display the image
 	wxImage* m_imageRGB;		// used to load the image
 	unsigned char* m_myImage;	// used to process the image
@@ -51,17 +53,19 @@ void MyCanvas::LoadImage(wxString fileName)
 
 	// open image dialog box
 	m_imageRGB = new wxImage(fileName, wxBITMAP_TYPE_ANY, -1); // ANY => can load many image formats
-	// m_imageBitmap = wxBitmap(*m_imageRGB, -1); // ...to get the corresponding bitmap
+	//m_imageBitmap = wxBitmap(*m_imageRGB, -1); // ...to get the corresponding bitmap
 
-	m_imageWidth = m_imageRGB->GetWidth();
-	m_imageHeight = m_imageRGB->GetHeight();
+	if (m_imageRGB) {
 
-	m_myImage = (unsigned char*)malloc(m_imageWidth * m_imageHeight * 3);
-	memcpy(m_myImage, m_imageRGB->GetData(), m_imageWidth * m_imageHeight * 3);
+		m_imageWidth = m_imageRGB->GetWidth();
+		m_imageHeight = m_imageRGB->GetHeight();
+	}
+	//m_myImage = (unsigned char*)malloc(m_imageWidth * m_imageHeight * 3);
+	//memcpy(m_myImage, m_imageRGB->GetData(), m_imageWidth * m_imageHeight * 3);
 
-	// update GUI size
-	SetSize(m_imageWidth, m_imageHeight);
-	GetParent()->SetClientSize(GetSize());
+	//// update GUI size
+	//SetSize(m_imageWidth, m_imageHeight);
+	//GetParent()->SetClientSize(GetSize());
 
 	// update display
 	Refresh(false);

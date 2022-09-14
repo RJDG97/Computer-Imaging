@@ -45,7 +45,6 @@ private:
     wxSplitterWindow* m_splitter;
     wxSplitterWindow* m_topsplitter;
     wxSplitterWindow* m_bottomsplitter;
-    wxPanel* m_left;
     wxPanel* m_right;
 
     wxBoxSizer* m_sizer;

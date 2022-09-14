@@ -32,6 +32,7 @@
 
 #include "wx/splitter.h"
 #include <wx/image.h>
+#include <wx/textfile.h>
 #include <wx/file.h>
 #include <wx/bitmap.h>
 

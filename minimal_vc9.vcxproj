@@ -44,6 +44,7 @@
     <ClInclude Include="src\details\Frame_inline.h" />
     <ClInclude Include="src\details\ImageRendering_events_inline.h" />
     <ClInclude Include="src\Frame.h" />
+    <ClInclude Include="src\PPM.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\minimal.cpp" />

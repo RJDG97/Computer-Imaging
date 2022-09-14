@@ -36,6 +36,9 @@
     <ClInclude Include="src\Canvas.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\PPM.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\minimal.cpp" />
